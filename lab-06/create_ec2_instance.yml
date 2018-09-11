@@ -1,0 +1,44 @@
+---
+- name: Create an EC2 instance
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Launch instance
+      ec2:
+         key_name: "{{ lookup('env','AWS_KEY_PAIR') }}"
+         group: launch-wizard-7
+         instance_type: t2.micro
+         image: ami-49f0762d
+         wait: true
+         region: ca-central-1
+         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
+      register: ec2
+    - name: Print all ec2 variables
+      debug: var=ec2
+    - name: Get theh Ip address
+      debug: var=ec2.instances[0].public_dns_name
+
+    - pause: minutes=1
+
+
+
+- name: Terminate an EC2 instance
+  hosts: localhost
+  gather_facts: True
+  vars:
+    instance_id: "{{ ec2.instance_ids }}"
+  tasks:
+    - name: Terminate instance
+      ec2:
+         instance_ids: "{{ instance_id }}"
+         wait: true
+         state: absent
+         region: ca-central-1
+         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
+      register: ec2
+    - name: Print all ec2 variables
+      debug: var=ec2
+
+  

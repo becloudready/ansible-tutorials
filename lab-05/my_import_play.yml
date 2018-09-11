@@ -1,0 +1,6 @@
+- name: Testing Import feature
+  hosts: localhost
+  tasks:
+   
+   - name: Debugging the output
+     debug: var=hostvars[inventory_hostname]
