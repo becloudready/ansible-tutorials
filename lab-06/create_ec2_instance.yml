@@ -8,7 +8,7 @@
          key_name: "{{ lookup('env','AWS_KEY_PAIR') }}"
          group: launch-wizard-7
          instance_type: t2.micro
-         image: ami-49f0762d
+         image: ami-04681a1dbd79675a5
          wait: true
          region: us-east-1
          aws_access_key: "AKIAIKHKCSAU6WVFC2RA"
