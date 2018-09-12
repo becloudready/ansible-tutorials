@@ -23,22 +23,5 @@
 
 
 
-- name: Terminate an EC2 instance
-  hosts: localhost
-  gather_facts: True
-  vars:
-    instance_id: "{{ ec2.instance_ids }}"
-  tasks:
-    - name: Terminate instance
-      ec2:
-         instance_ids: "{{ instance_id }}"
-         wait: true
-         state: absent
-         region: ca-central-1
-         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
-         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
-      register: ec2
-    - name: Print all ec2 variables
-      debug: var=ec2
 
   
