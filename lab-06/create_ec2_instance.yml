@@ -10,9 +10,9 @@
          instance_type: t2.micro
          image: ami-49f0762d
          wait: true
-         region: ca-central-1
-         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
-         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
+         region: us-east-1
+         aws_access_key: "AKIAIKHKCSAU6WVFC2RA"
+         aws_secret_key: "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"
       register: ec2
     - name: Print all ec2 variables
       debug: var=ec2
