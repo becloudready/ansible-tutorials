@@ -1,0 +1,72 @@
+---
+- hosts: localhost
+  vars:
+    listvar1:
+    - 'a'
+    - 'b'
+    - 'c'
+  tasks:
+    - debug:
+        msg: "{{ item[0] }}"
+      with_items:
+        - "{{ listvar1 }}"
+
+    # - name: Create files on loop
+    #   command: touch /tmp/foo
+    
+    # - name: Create files on loop
+    #   command: touch /tmp/bar
+
+    # - name: Create files on loop
+    #   command: touch /tmp/{{ item }}
+    #   with_items:
+    #     - foo
+    #     - bar
+
+    # - name: Testing out some tested loop conditions
+    #   debug: msg="nested test a={{ item[0] }} b={{ item[1] }} c={{ item[2] }}"
+    #   with_nested:
+    #     - [ 'red', 'blue', 'green' ]
+    #     - [ 1, 2, 3 ]
+    #     - [ 'up', 'down', 'strange']
+
+    # - name: Testing more nested loops
+    #   debug: msg="nested test a={{ item[0] }} b={{ item[1] }}"
+    #   with_nested:
+    #     - "{{ listvar1 }}"
+    #     - [ 1, 2, 3 ]
+
+    # - name: "loop through list"
+    #   debug:
+    #     msg: "An item: {{item}}"
+    #   with_items:
+    #     - 1
+    #     - 2
+    #     - 3
+
+    # - name: add several users
+    #   user:
+    #     name: "{{ item }}"
+    #     groups: "wheel"
+    #     state: present
+    #   with_items:
+    #      - testuser1
+    #      - testuser2
+
+    # - name: Ensure group "vagrant" exists
+    #   group:
+    #     name: vagrant
+    #     state: present
+
+    # - name: more complex items to add several users
+    #   user:
+    #     name: "{{ item.name }}"
+    #     uid: "{{ item.uid }}"
+    #     groups: "{{ item.groups }}"
+    #     state: present
+    #   with_items:
+    #      - { name: testuser1, uid: 1002, groups: "wheel, vagrant" }
+    #      - { name: testuser2, uid: 1003, groups: vagrant }
+
+
+

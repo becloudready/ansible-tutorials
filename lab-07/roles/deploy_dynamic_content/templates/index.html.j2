@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Ansible-http: {{ display_message }}</title>
+  </head>
+  <body>
+    <p>Kernel = {{ ansible_kernel }}</p>
+    <p>Host IP = {{ ansible_all_ipv4_addresses }}</p>
+    <p>ansible_bios_version = {{ ansible_bios_version }}</p>
+    <p>ansible_date_time = {{ ansible_date_time.date }}</p>
+    <p>ansible_distribution = {{ ansible_distribution }}</p>
+    <p>ansible_fqdn = {{ ansible_fqdn }}</p>
+    <p>ansible_inventory_sources = {{ ansible_inventory_sources }}</p>
+
+  </body>
+</html>

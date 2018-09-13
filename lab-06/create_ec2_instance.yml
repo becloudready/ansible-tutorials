@@ -1,0 +1,26 @@
+---
+- name: Create an EC2 instance
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Launch instance
+      ec2:
+         key_name: "{{ lookup('env','AWS_KEY_PAIR') }}"
+         group: launch-wizard-7
+         instance_type: t2.micro
+         image: ami-04681a1dbd79675a5
+         wait: true
+         region: us-east-1
+        
+      register: ec2
+    - name: Print all ec2 variables
+      debug: var=ec2
+    - name: Get theh Ip address
+      debug: var=ec2.instances[0].public_dns_name
+
+    - pause: minutes=1
+
+
+
+
+  
