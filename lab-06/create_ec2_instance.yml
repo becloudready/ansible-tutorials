@@ -11,8 +11,7 @@
          image: ami-04681a1dbd79675a5
          wait: true
          region: us-east-1
-         aws_access_key: "AKIAIKHKCSAU6WVFC2RA"
-         aws_secret_key: "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"
+        
       register: ec2
     - name: Print all ec2 variables
       debug: var=ec2
