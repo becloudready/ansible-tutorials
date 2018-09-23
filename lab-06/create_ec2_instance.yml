@@ -5,12 +5,12 @@
   tasks:
     - name: Launch instance
       ec2:
-         key_name: "{{ lookup('env','AWS_KEY_PAIR') }}"
-         group: launch-wizard-7
+         key_name: ansible
+         group: ansible-node
          instance_type: t2.micro
-         image: ami-04681a1dbd79675a5
+         image: ami-49f0762d
          wait: true
-         region: us-east-1
+         region: ca-central-1
         
       register: ec2
     - name: Print all ec2 variables
