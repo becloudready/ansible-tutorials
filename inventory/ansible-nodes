@@ -1,6 +1,6 @@
-node01 ansible_host=ec2-35-182-223-109.ca-central-1.compute.amazonaws.com
-node02 ansible_host=ec2-35-183-115-47.ca-central-1.compute.amazonaws.com
-node03 ansible_host=ec2-35-182-91-226.ca-central-1.compute.amazonaws.com
+node01 ansible_host=35.182.204.107 ansible_user=ec2-user
+node02 ansible_host=35.183.135.142 ansible_user=ec2-user
+node03 ansible_host=35.182.11.146 ansible_user=ec2-user
 
 [webservers]
 node01
