@@ -2,10 +2,10 @@
 
 ## Test Ad hoc commands and ssh command comparison
 
-ssh node01 "hostname -f"
-ansible node01   -a "hostname -f"
+# ssh node01 "hostname -f"
+# ansible node01   -a "hostname -f"
 
-ssh node01 "mkdir /home/ec2-user/mytestdir"
+# ssh node01 "mkdir /home/ec2-user/mytestdir"
 ansible node01  -a "mkdir /home/ec2-user/testdirAnsible"
 ansible node01 -m copy -a "src=inventory/ansible-nodes dest=/tmp/ansible-nodes"
 ansible node01 -m shell -a "cat /tmp/ansible-nodes" 
