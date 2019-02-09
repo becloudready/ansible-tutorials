@@ -31,9 +31,9 @@
     #     msg: "{{ my_name }}"
     #   when: my_name == "Chandan1"
 
-    - name: Display all variables/facts known for a host
-      debug:
-        var: hostvars[inventory_hostname]
+    # - name: Display all variables/facts known for a host
+    #   debug:
+    #     var: hostvars[inventory_hostname]
 
 # - hosts: all
 #   name: Setting up the hostnames
