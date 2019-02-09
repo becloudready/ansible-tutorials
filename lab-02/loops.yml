@@ -2,7 +2,7 @@
 - hosts: localhost
   tasks:
   - name: Create files on loop
-    command: touch /tmp/{{ item }}
+    debug: var="{{ item }}"
     with_items:
       - foo
       - bar
