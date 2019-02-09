@@ -17,11 +17,11 @@
     # - name: Create files on loop
     #   command: touch /tmp/bar
 
-    # - name: Create files on loop
-    #   command: touch /tmp/{{ item }}
-    #   with_items:
-    #     - foo
-    #     - bar
+    - name: Create files on loop
+       command: touch /tmp/{{ item }}
+       with_items:
+         - foo
+         - bar
 
     # - name: Testing out some tested loop conditions
     #   debug: msg="nested test a={{ item[0] }} b={{ item[1] }} c={{ item[2] }}"
