@@ -1,5 +1,5 @@
 ---
-- hosts: webserver
+- hosts: webservers
   become: true
   vars_files:
     - "vars.yml"
