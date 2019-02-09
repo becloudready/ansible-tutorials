@@ -1,1 +1,2 @@
 my_group_var: GroupVar1
+ansible_user=ec2-user

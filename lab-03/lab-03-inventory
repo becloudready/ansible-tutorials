@@ -1,7 +1,5 @@
-node01 hostname=node01 ansible_host=ec2-35-182-223-109.ca-central-1.compute.amazonaws.com
-node02 hostname=node02 ansible_host=ec2-35-183-115-47.ca-central-1.compute.amazonaws.com
-node03 hostname=node03 ansible_host=ec2-35-182-91-226.ca-central-1.compute.amazonaws.com
-node04 hostname=node04 ansible_host=ec2-35-183-130-150.ca-central-1.compute.amazonaws.com
+node03 hostname=node03 ansible_host=35.183.24.239
+node04 hostname=node04 ansible_host=35.182.105.178
 
 [ubuntu]
 node04
