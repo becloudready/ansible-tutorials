@@ -33,7 +33,7 @@
 
     - name: Display all variables/facts known for a host
       debug:
-        var: hostvars[inventory_hostname].ansible_XHC20
+        var: hostvars[inventory_hostname]
 
 # - hosts: all
 #   name: Setting up the hostnames
