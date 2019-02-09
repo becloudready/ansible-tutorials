@@ -1,11 +1,10 @@
-node01 ansible_host=35.182.204.107 ansible_user=ec2-user
-node02 ansible_host=35.183.135.142 ansible_user=ec2-user
-node03 ansible_host=35.182.11.146 ansible_user=ec2-user
+node01 ansible_host=63.33.41.106 ansible_user=ec2-user
+node02 ansible_host=54.171.97.105 ansible_user=ec2-user
 
-[webservers]
+[Webservers]
 node01
-node02
-[appservers]
+
+[DBservers]
 node02
 
 
