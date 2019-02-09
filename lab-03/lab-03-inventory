@@ -4,5 +4,5 @@ node04 hostname=node04 ansible_host=35.183.186.92
 [ubuntu]
 node04
 
-[rhel]
+[webserver]
 node03

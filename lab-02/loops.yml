@@ -2,62 +2,18 @@
 - hosts: localhost
   tasks:
   - name: Create files on loop
-    debug: var="{{ item }}"
+    debug: var=item
     with_items:
     - foo
     - bar
-  
- 
-  - debug: msg="System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
-    when: ansible_default_ipv4.gateway is defined
 
-  # - shell: /usr/bin/uptime
-  #   register: result
-
-  - debug: var=result
-    verbosity: 2
-
-  - name: Display all variables/facts known for a host
-    debug: var=hostvars[inventory_hostname]
-    verbosity: 4
-
-  # vars:
-  #   listvar1:
-  #   - 'a'
-  #   - 'b'
-  #   - 'c'
-  # tasks:
-  #   - debug:
-  #       msg: "{{ item[0] }}"
-  #     with_items:
-  #       - "{{ listvar1 }}"
-
-    # - name: Create files on loop
-    #   command: touch /tmp/foo
-    
-    # - name: Create files on loop
-    #   command: touch /tmp/bar
-
-    # - name: Testing out some tested loop conditions
-    #   debug: msg="nested test a={{ item[0] }} b={{ item[1] }} c={{ item[2] }}"
-    #   with_nested:
-    #     - [ 'red', 'blue', 'green' ]
-    #     - [ 1, 2, 3 ]
-    #     - [ 'up', 'down', 'strange']
-
-    # - name: Testing more nested loops
-    #   debug: msg="nested test a={{ item[0] }} b={{ item[1] }}"
-    #   with_nested:
-    #     - "{{ listvar1 }}"
-    #     - [ 1, 2, 3 ]
-
-    # - name: "loop through list"
-    #   debug:
-    #     msg: "An item: {{item}}"
-    #   with_items:
-    #     - 1
-    #     - 2
-    #     - 3
+  - name: "loop through list"
+    debug:
+      msg: "An : {{ item }}"
+    with_items:
+      - 1
+      - 2
+      - 3
 
     # - name: add several users
     #   user:
