@@ -1,5 +1,5 @@
 ---
-- hosts: webservers  # Host or Group of Selections
+- hosts: Webservers  # Host or Group of Selections
   become: true
   vars:
     httpd_port: 8080
@@ -10,7 +10,7 @@
     service: name=httpd state=started enabled=yes
 
 
-- hosts: dbservers
+- hosts: DBservers
   become: true
   tasks:
   - name: Install default-jdk
