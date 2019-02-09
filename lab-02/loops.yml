@@ -11,10 +11,10 @@
 
   - debug:
     msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
-  when: ansible_default_ipv4.gateway is defined
+    when: ansible_default_ipv4.gateway is defined
 
-  - shell: /usr/bin/uptime
-    register: result
+  # - shell: /usr/bin/uptime
+  #   register: result
 
   - debug:
     var: result
