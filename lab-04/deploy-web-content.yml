@@ -1,5 +1,5 @@
 ---
-- hosts: webservers
+- hosts: Webservers
   tasks:
   - name: Stop and remove nginx
     service: name=nginx state=stopped
@@ -8,7 +8,7 @@
   ignore_errors: yes
 
 
-- hosts: webservers
+- hosts: Webservers
   become: true
   roles:
     - ntp
