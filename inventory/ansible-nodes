@@ -1,5 +1,5 @@
-node01 ansible_host=35.183.27.19 
-node02 ansible_host=35.183.24.239
+node01 ansible_host=63.33.41.106 
+node02 ansible_host=54.171.97.105
 
 [Webservers]
 node01
