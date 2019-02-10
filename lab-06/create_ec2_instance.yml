@@ -5,12 +5,12 @@
   tasks:
     - name: Launch instance
       ec2:
-         key_name: ansible
-         group: ansible-node
+         key_name: Ansible
+         group: default
          instance_type: t2.micro
-         image: ami-49f0762d
+         image: ami-0e12cbde377cbb98
          wait: true
-         region: ca-central-1
+         region: eu-west-1
         
       register: ec2
     - name: Print all ec2 variables
