@@ -1,10 +1,8 @@
-node01 ansible_host=63.33.41.106 ansible_user=ec2-user
-node02 ansible_host=54.171.97.105 ansible_user=ec2-user
+node01 ansible_host=35.183.27.19 
+node02 ansible_host=35.183.24.239
 
 [Webservers]
 node01
 
 [DBservers]
 node02
-
-

@@ -18,9 +18,9 @@
     #     msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
     #   when: ansible_product_uuid is defined
 
-    # - debug:
-    #     msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
-    #   when: ansible_default_ipv4.gateway is defined
+    - debug:
+        msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
+      when: ansible_default_ipv4.gateway is defined
 
     # - shell: /usr/bin/uptime
     #   register: result
@@ -31,9 +31,9 @@
     #     msg: "{{ my_name }}"
     #   when: my_name == "Chandan1"
 
-    - name: Display all variables/facts known for a host
-      debug:
-        var: hostvars[inventory_hostname].ansible_XHC20
+    # - name: Display all variables/facts known for a host
+    #   debug:
+    #     var: hostvars[inventory_hostname]
 
 # - hosts: all
 #   name: Setting up the hostnames
