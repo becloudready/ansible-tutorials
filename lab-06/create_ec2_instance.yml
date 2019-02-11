@@ -8,7 +8,7 @@
          key_name: Ansible
          group: default
          instance_type: t2.micro
-         image: ami-0e12cbde377cbb98
+         image: ami-0e12cbde3e77cbb98
          wait: true
          region: eu-west-1
         
