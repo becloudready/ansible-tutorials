@@ -1,8 +1,8 @@
 node01 ansible_host=34.250.188.74
 node02 ansible_host=54.229.181.186
 
-[Webservers]
+[webserver]
 node01
 
-[DBservers]
+[DBserver]
 node02
