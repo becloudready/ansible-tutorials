@@ -16,14 +16,3 @@
       debug: var=ec2
 
 
-
-
-- name: add host to group 'just_created' with variable foo=42
-      add_host:
-    
-
-- name: Install stuff into ec2 hosts
-  hosts: ec2_hosts
-  become: yes
-  roles:
-    - 
