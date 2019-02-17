@@ -1,4 +1,4 @@
-# devopstraining
+# Ansible Tutorials
 
 Sample programs and examples for DevOps Training
 
