@@ -5,7 +5,7 @@
   tasks:
     - name: Terminate instance
       ec2:
-         instance_ids: "{{ lookup('env', 'INSTANCE') }}"
+         instance_ids: "{{ lookup('env', 'instance_id') }}"
          wait: true
          state: absent
          region: ca-central-1
