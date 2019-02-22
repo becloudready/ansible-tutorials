@@ -8,7 +8,7 @@
   - name: Start httpd
     service: name=httpd state=started enabled=yes
 
-- hosts: node02
+- hosts: Webservers
   become: true
   tasks:
   - name: Install default-jdk
