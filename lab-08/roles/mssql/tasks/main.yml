@@ -2,7 +2,7 @@
   docker_container:
     user: root
     network_mode: host
-    name: sa-elk-elasticsearch
+    name: mssql-server-linux
     image: microsoft/mssql-server-linux:2017-latest
     state: started
     pull: yes
