@@ -69,6 +69,12 @@ cd ansible/lab-07/
 python dynamic_inventory.py <aws-access-key> <aws-access-secret-key>
 
 ```
+## Lab -08 - Please don't push your AWS key on github
+
+Generate dynamic inventory and install docker followed by mssql docker image
+```
+ansible-playbook lab-08/running_roles.yml
+```
 
 ## Q&A
 
