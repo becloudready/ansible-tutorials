@@ -1,1 +1,2 @@
-webserver_port: 80
+webserver_port: 8080
+static_content: static_content.zip

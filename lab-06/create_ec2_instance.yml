@@ -5,7 +5,7 @@
   tasks:
     - name: Launch instance
       ec2:
-         key_name: ansible
+         key_name: devops-feb
          group: ansible-node
          instance_type: t2.micro
          image: ami-49f0762d

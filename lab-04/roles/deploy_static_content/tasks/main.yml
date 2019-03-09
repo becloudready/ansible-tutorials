@@ -13,4 +13,4 @@
   with_items: "{{content.stdout_lines}}"
 
 - name: Deploy static content
-  unarchive: src={{ }} dest=/var/www/html
+  unarchive: src={{ static_content }} dest=/var/www/html

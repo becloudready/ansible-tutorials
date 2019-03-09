@@ -1,7 +1,14 @@
 - hosts: webservers
   vars:
     user_name: Chandan
+    http_port: 8080
   tasks:
+    - yum: pkg=httpd state=installed
+    - template: 
+        src: httpd.conf
+        dest: /etc/httpd/conf/httpd.conf
+    - service: name=httpd state=running
+
     - template:
         src: example-template.j2
         dest: /tmp/jinta-output

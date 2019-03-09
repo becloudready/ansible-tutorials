@@ -1,8 +1,8 @@
 ---
 
-#- include: my_include_play.yml
+- include: my_include_play.yml
 
-- import_playbook: my_import_play.yml
+# - import_playbook: my_import_play.yml
 
 
 # - hosts: webserver

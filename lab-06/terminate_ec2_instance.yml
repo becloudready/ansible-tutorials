@@ -5,12 +5,10 @@
   tasks:
     - name: Terminate instance
       ec2:
-         instance_ids: i-02705a18317c8492c
+         instance_ids: i-03c48ae504b580447
          wait: true
          state: absent
          region: ca-central-1
-         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
-         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
       register: ec2
     - name: Print all ec2 variables
       debug: var=ec2
@@ -18,12 +16,12 @@
 
 
 
-- name: add host to group 'just_created' with variable foo=42
-      add_host:
+# - name: add host to group 'just_created' with variable foo=42
+#       add_host:
     
 
-- name: Install stuff into ec2 hosts
-  hosts: ec2_hosts
-  become: yes
-  roles:
-    - 
+# - name: Install stuff into ec2 hosts
+#   hosts: ec2_hosts
+#   become: yes
+#   roles:
+#     - 

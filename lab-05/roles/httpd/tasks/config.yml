@@ -1,0 +1,6 @@
+- name: Update httpd default config
+  copy: 
+   src=httpd.conf
+   dest=/etc/httpd/conf/
+  notify:
+    - Reload httpd configuration

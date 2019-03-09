@@ -5,10 +5,10 @@
      shell: cat vars.yml
      register: cmd_output
 
-   - debug: var=cmd_output
+  #  - debug: var=cmd_output
 
    - name: Debugging the output
-     debug: var=cmd_output.stdout_lines[0]
+     debug: var=cmd_output.stdout_lines[2][0]
      
 
   #  - name: Debugging the output
