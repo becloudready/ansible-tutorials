@@ -1,11 +1,7 @@
-node01 ansible_host=35.183.27.19 
-node02 ansible_host=35.183.24.239
+node01 ansible_ssh_host=ip-172-31-0-53.ca-central-1.compute.internal ansible_ssh_user=ec2-user ansible_ssh_private_key_file=/home/ec2-user/ansible.pem
+node02 ansible_ssh_host=ip-172-31-0-145.ca-central-1.compute.internal ansible_ssh_user=ec2-user ansible_ssh_private_key_file=/home/ec2-user/ansible.pem
 
-
-[webservers]
+[dbserver]
 node01
+[webserver]
 node02
-[appservers]
-node02
-
-
