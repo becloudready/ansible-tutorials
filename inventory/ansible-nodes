@@ -3,5 +3,5 @@ node02 ansible_ssh_host=ec2-35-183-4-120.ca-central-1.compute.amazonaws.com ansi
 
 [dbserver]
 node01
-[webserver]
+[webservers]
 node02
