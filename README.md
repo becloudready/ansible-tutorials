@@ -8,11 +8,15 @@ https://www.becloudready.com/training
 
 Contains examples of Ansible playbooks
 
-https://www.becloudready.com/forum/articles-1/training-ansible-devops-training
+https://www.becloudready.com/forum/resources/training-ansible-devops-training
+
+## Get setup for your Local Git with Visual studio code
+
+https://www.becloudready.com/forum/resources/github-with-ms-visual-studio-code
 
 ## Ansible Instructions
 
-Please use the instructions to setup environment at: https://www.becloudready.com/forum/articles-1/setup-ansible-environment-on-aws-ec2
+Please use the instructions to setup environment at: https://www.becloudready.com/forum/resources/setup-ansible-environment-on-aws-ec2
 
 ### lab-01
 
