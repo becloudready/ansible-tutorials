@@ -22,11 +22,11 @@
         msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
       when: ansible_default_ipv4.gateway is defined
 
-    # - shell: /usr/bin/uptime
-    #   register: result
+    - shell: /usr/bin/uptime
+      register: result
 
-    # - debug:
-    #     var: result
+    - debug:
+        var: result
     # - debug:
     #     msg: "{{ my_name }}"
     #   when: my_name == "Chandan1"
