@@ -1,5 +1,5 @@
 ---
-- name: Create an EC2 instance
+- name: Create an EC2 instance on AWS Cloud with Dynamic Inventory
   hosts: localhost
   gather_facts: False
   tasks:
@@ -7,19 +7,17 @@
       ec2:
          key_name: ansible
          group: ansible-node
-         instance_type: t2.micro
+         instance_type: t2.small
          image: ami-07423fb63ea0a0930
          wait: true
          region: ca-central-1
-         # aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
-         # aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
       register: ec2
     - name: Print all ec2 variables
       debug: var=ec2
     - name: Get theh Ip address
       debug: var=ec2.instances[0].public_dns_name
 
-    - name: add host to group 'just_created' with variable foo=42
+    - name: Add host to group 'just_created' with variable foo=42
       add_host:
         name: "{{ ec2.instances[0].public_dns_name }}"
         groups: ec2_hosts
@@ -28,7 +26,7 @@
         ansible_ssh_private_key_file: ~/ansible.pem
   
     - name: Wait for a while
-      pause: seconds=60
+      pause: seconds=30
 
 
 - name: Install stuff into ec2 hosts
