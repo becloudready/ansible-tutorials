@@ -5,3 +5,4 @@ node02 ansible_ssh_host=ec2-99-79-51-177.ca-central-1.compute.amazonaws.com ansi
 node01
 [webservers]
 node02
+node01
