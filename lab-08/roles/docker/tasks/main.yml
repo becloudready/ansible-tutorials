@@ -1,17 +1,3 @@
-- name: upgrade all packages
-  yum: name=* state=latest
-
-- name: Install docker, pip
-  yum: pkg={{ item }} state=installed
-  with_items:
-   - docker
-   - python-pip
-
-- name: Docker py
-  pip:
-   name: docker-py
-
-- name: Start service httpd, if not started
-  service:
-    name: docker
-    state: started
+---
+- include: amazon.yml
+  when: ansible_distribution == "Amazon"

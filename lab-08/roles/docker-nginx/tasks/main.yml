@@ -1,0 +1,22 @@
+
+- name: Create html dir for hosting
+  file: path=/usr/share/nginx/html state=directory
+
+- name: Copy the html file 
+  copy: src=index.html dest=/usr/share/nginx/html
+
+
+- name: Start the Nginx container
+  docker_container:
+    user: root
+    network_mode: host
+    name: nginx
+    image: nginx
+    state: started
+    pull: true
+    ports:
+     - 80:80
+    volumes:
+     - /usr/share/nginx/html:/usr/share/nginx/html
+
+- debug: msg=" Check the Landing page at http://{{ inventory_hostname }}"

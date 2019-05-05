@@ -12,6 +12,7 @@
          wait: true
          region: ca-central-1
       register: ec2
+
     - name: Print all ec2 variables
       debug: var=ec2
     - name: Get theh Ip address
@@ -26,7 +27,7 @@
         ansible_ssh_private_key_file: ~/ansible.pem
   
     - name: Wait for a while
-      pause: seconds=30
+      pause: seconds=20
 
 
 - name: Install stuff into ec2 hosts
@@ -34,6 +35,5 @@
   become: yes
   become_user: root
   roles:
-    - git
     - docker
-    - mssql
+    - docker-nginx

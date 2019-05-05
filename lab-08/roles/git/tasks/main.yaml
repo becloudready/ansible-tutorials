@@ -1,3 +1,0 @@
----
-- name: Installing Git
-  yum: pkg=git state=installed
