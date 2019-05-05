@@ -19,3 +19,6 @@
   - name: Install default-jdk for Debian
     apt: name=java-1.8.0-openjdk state=present
     when: ansible_os_family == "Debian"
+  - name: Install java in amazon linux
+    yum: name=java-1.8.0-openjdk state=present
+    when: ansible_os_family == "Amazon"
