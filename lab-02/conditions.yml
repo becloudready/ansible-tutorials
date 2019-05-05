@@ -15,6 +15,9 @@
     - debug:
         var: result.stdout_lines[0]
 
+    - debug:
+        var: result
+
     - name: Getting OS version if result was succeeded 
       command: cat /etc/redhat-release1
       when: result is succeeded  # if result === succeed
