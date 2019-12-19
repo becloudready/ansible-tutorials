@@ -1,0 +1,38 @@
+---
+- name: Create an EC2 instance on AWS Cloud with Dynamic Inventory
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Launch instance
+      ec2:
+         key_name: linux-training
+         group: linux-training
+         instance_type: t2.micro
+         image: ami-0dacb0c129b49f529
+         wait: true
+         region: us-east-2
+      register: ec2
+
+    - name: Print all ec2 variables
+      debug: var=ec2
+    - name: Get theh Ip address
+      debug: var=ec2.instances[0].public_dns_name
+
+    - name: Add host to group 'just_created' with variable foo=42
+      add_host:
+        name: "{{ ec2.instances[0].public_dns_name }}"
+        groups: ec2_hosts
+        ansible_host: "{{ ec2.instances[0].public_dns_name }}"
+        ansible_ssh_user: ec2-user
+        ansible_ssh_private_key_file: ~/linux-training.pem
+  
+    - name: Wait for a while
+      pause: seconds=40
+
+
+- name: Install stuff into ec2 hosts
+  hosts: ec2_hosts
+  become: yes
+  become_user: root
+  roles:
+    - wordpress

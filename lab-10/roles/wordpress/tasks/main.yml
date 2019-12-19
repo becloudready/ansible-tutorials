@@ -1,0 +1,19 @@
+- name: Install docker and python-pip
+  yum: 
+   pkg: "{{ item }}" 
+   state: installed
+  with_items:
+   - git
+
+- name: Install Git
+  command: git clone https://github.com/mellora/bash_scripts.git
+  args:
+    chdir: /home/ec2-user
+    creates: /home/ec2-user/bash_script
+
+- name: Install wp
+  command: /bin/bash bash_scripts/install_wordpress.sh
+  args:
+    chdir: /home/ec2-user
+    
+
