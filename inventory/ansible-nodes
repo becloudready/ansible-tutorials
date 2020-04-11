@@ -2,7 +2,7 @@ node01 hello=world ansible_ssh_host=ec2-35-183-245-61.ca-central-1.compute.amazo
 
 node02 ansible_ssh_host=ec2-35-183-99-52.ca-central-1.compute.amazonaws.com ansible_ssh_user=ec2-user 
 
-node03 ansible_ssh_host=ec2-35-183-118-247.ca-central-1.compute.amazonaws.com ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/ansible.pem
+#node03 ansible_ssh_host=ec2-35-183-118-247.ca-central-1.compute.amazonaws.com ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/ansible.pem
 
 
 [dbserver]
