@@ -13,7 +13,7 @@
     #   #when: result is failed
 
     - debug:
-        var: result.stdout_lines[0]
+        var: result.stdout_lines[0]  # basic parsing of JSON
 
     - debug:
         var: result
