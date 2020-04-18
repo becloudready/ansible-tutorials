@@ -1,0 +1,22 @@
+# installing httpd on webserver and mysql on dbserver
+
+---
+- hosts: webservers
+  become: true
+  tasks:
+  - name: Install httpd on webservers
+    yum : 
+      name=httpd
+      state=present
+  - name: Coping configuration file
+    copy: src=devopstraining/ansible/roles/apache2/files/httpd.conf dest=/var/www/html/httpd.conf
+  - name: Starting Apache
+    service: name=httpd state=restarted
+
+- hosts: dbservers
+  become: true
+  tasks:
+  # - name: Install MySQL on dbservers
+  #   yum: name=mysql-server state=present
+  - name: Installing Mariadb-server
+    yum: name=mariadb-server state=present
