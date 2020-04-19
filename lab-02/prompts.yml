@@ -1,9 +1,0 @@
----
-- hosts: localhost
-  vars_prompt:
-    - name: "name"
-      prompt: "what is your name?"
-
-  tasks:
-    - debug: var=name
-    

@@ -1,8 +1,0 @@
-node03 hostname=node03 ansible_host=35.183.24.239
-node04 hostname=node04 ansible_host=35.183.186.92
-
-[ubuntu]
-node04
-
-[webserver]
-node03

@@ -1,3 +1,0 @@
----
-- include: amazon.yml
-  when: ansible_distribution == "Amazon"
