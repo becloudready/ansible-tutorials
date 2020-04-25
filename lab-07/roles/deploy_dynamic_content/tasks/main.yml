@@ -1,0 +1,14 @@
+---
+- name: Install unzip
+  yum: name=unzip state=present
+
+- name: Get static content
+  shell: ls -1 /var/www/html
+  register: content
+
+- name: Undeploy previous version of static content
+  file: path=/var/www/html/{{item}} state=absent
+  with_items: "{{content.stdout_lines}}"
+
+- name: Deploy Dynamic content
+  template: src=index.html.j2 dest=/var/www/html/index.html

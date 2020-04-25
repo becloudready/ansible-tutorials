@@ -1,0 +1,16 @@
+My name is {{ user_name }}
+
+I am testing some if else jinja conditions
+
+
+{% if play_hosts is not none %}
+Following hosts were found in this host group
+all_hosts += [
+
+{% for host in play_hosts %}
+  "{{ hostvars[host].inventory_hostname }}, {{ hostvars[host].ansible_default_ipv4.address }}"
+{% endfor %}
+] 
+{% else %}
+No hosts were found in this group
+{%endif %}

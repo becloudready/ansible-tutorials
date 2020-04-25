@@ -1,0 +1,15 @@
+---
+- name: Install httpd server
+  yum: name=httpd state=present
+
+- name: Start httpd
+  service: name=httpd state=started enabled=yes
+
+- name: Update httpd default config
+  copy: src=httpd.conf dest=/etc/httpd/conf/
+  notify:
+    - Reload httpd configuration
+
+- name: Flush handlers
+  meta: flush_handlers
+

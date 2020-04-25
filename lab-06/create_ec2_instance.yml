@@ -1,0 +1,26 @@
+---
+- name: Create an EC2 instance
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Launch instance
+      ec2:
+         key_name: ansible
+         group: ansible-node
+         instance_type: t2.micro
+         image: ami-49f0762d
+         wait: true
+         region: ca-central-1
+        
+      register: ec2
+    - name: Print all ec2 variables
+      debug: var=ec2
+    - name: Get theh Ip address
+      debug: var=ec2.instances[0].public_dns_name
+
+    - pause: minutes=1
+
+
+
+
+  

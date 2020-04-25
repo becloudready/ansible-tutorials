@@ -1,0 +1,12 @@
+- name: Create MS SQL container
+  docker_container:
+    user: root
+    network_mode: host
+    name: mssql-server-linux
+    image: microsoft/mssql-server-linux:2017-latest
+    state: started
+    pull: yes
+    ports:
+     - "1433:14333"
+    
+  

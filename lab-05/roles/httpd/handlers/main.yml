@@ -1,0 +1,3 @@
+---
+- name: Reload nginx configuration
+  command: service httpd restart

@@ -1,5 +1,0 @@
-ansible -b -m yum -a "name=httpd state=present" webservers
-ansible -b -m yum -a "name=mysql state=present" dbservers
-ansible -b -m yum -a "name=mariadb-server state=present" dbservers
-ansible -b -m copy -a "src=./devopstraining/ansible/roles/apache2/files/httpd.conf dest=/var/www/html/httpd.conf" webservers
-ansible -b -m service -a "name=httpd state=restarted" webservers
