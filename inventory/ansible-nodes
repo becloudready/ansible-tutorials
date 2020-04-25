@@ -8,3 +8,4 @@ node02
 [webservers:vars]
 hello=hello
 
+node04
