@@ -1,6 +1,0 @@
----
-  static_content_file_name: static_content.zip
-  testing: hello world
-  testingline: 234
-  display_message: Hello world
-  

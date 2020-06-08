@@ -1,3 +1,0 @@
----
-- name: Reload httpd configuration
-  command: service httpd restart

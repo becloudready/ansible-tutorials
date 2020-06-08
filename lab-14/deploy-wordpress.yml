@@ -1,7 +1,0 @@
----
-- name: Install stuff into ec2 hosts
-  hosts: kafka
-  become: yes
-  become_user: root
-  roles:
-    - kafka
