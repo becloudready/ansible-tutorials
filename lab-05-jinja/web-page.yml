@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+  become: true
+  vars_files:
+    - "vars.yml"
+  tasks:
+  - name: Install Apache httpd
+    yum: name=httpd state=present
+  - name: Copy the index.html file web dir
+    copy: src=index.html dest=/var/www/html/index.html
+  - name: Start httpd
+    service: name=httpd state=started enabled=yes

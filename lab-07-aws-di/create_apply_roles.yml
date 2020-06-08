@@ -1,0 +1,45 @@
+---
+- name: Create an EC2 instance
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Launch instance
+      ec2:
+         key_name: ansible
+         group: ansible-node
+         instance_type: t2.micro
+         image: ami-49f0762d
+         wait: true
+         region: ca-central-1
+         # aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+         # aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
+      register: ec2
+    - name: Print all ec2 variables
+      debug: var=ec2
+    - name: Get theh Ip address
+      debug: var=ec2.instances[0].public_dns_name
+
+    - name: add host to group 'just_created' with variable foo=42
+      add_host:
+        name: "{{ ec2.instances[0].public_dns_name }}"
+        groups: ec2_hosts
+        ansible_host: "{{ ec2.instances[0].public_dns_name }}"
+        ansible_ssh_user: ec2-user
+        ansible_ssh_private_key_file: ~/ansible.pem
+  
+    - name: Wait for a while
+      pause: seconds=60
+
+
+- name: Install stuff into ec2 hosts
+  hosts: ec2_hosts
+  become: yes
+  tasks:
+    - yum: pkg=net-tools state=installed
+    - yum: pkg=wget state=installed
+    - yum: pkg=git state=installed
+    - yum: pkg=java-1.8.0-openjdk state=installed
+    - shell: sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+    - shell: rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+    - yum: pkg=jenkins state=installed
+    - shell : "service jenkins restart"

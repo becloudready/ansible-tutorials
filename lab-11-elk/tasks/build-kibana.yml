@@ -1,0 +1,26 @@
+---
+- name: Create temp files
+  file:
+    path: /tmp/kibana/
+    state: directory
+
+- name: Copy Docker file
+  copy:
+    src=kibana-Dockerfile
+    dest=/tmp/kibana/Dockerfile
+
+- name: build and push
+  ignore_errors: true
+  become: true
+  args:
+    chdir: /tmp/kibana/
+  command: "{{ item }}"
+  with_items:
+    - docker build -t sa-kibana-elk .
+    - docker image tag sa-kibana-elk "{{ docker_registry }}"/sa-kibana-elk
+    - docker push "{{ docker_registry }}"/sa-kibana-elk
+
+- name: Remove temp files
+  file:
+    path: /tmp/kibana/
+    state: absent

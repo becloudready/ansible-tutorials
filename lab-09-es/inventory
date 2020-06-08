@@ -1,0 +1,6 @@
+node01 ansible_host=ec2-35-183-98-183.ca-central-1.compute.amazonaws.com
+[all]
+node01
+[all:vars]
+ansible_ssh_user=ec2-user
+ansible_ssh_private_key_file=~/ansible.pem

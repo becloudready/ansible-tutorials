@@ -1,0 +1,21 @@
+- name: upgrade all packages
+  yum: 
+   name: "*" 
+   state: latest
+
+- name: Install docker and python-pip
+  yum: 
+   pkg: "{{ item }}" 
+   state: installed
+  with_items:
+   - docker
+   - python-pip
+
+- name: Install Docker-py for Ansible
+  pip:
+   name: docker-py
+
+- name: Start service httpd, if not started
+  service:
+    name: docker
+    state: started

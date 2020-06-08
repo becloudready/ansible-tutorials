@@ -1,0 +1,51 @@
+---
+- hosts: node01
+  gather_facts: false
+  tasks:
+  - name: Create files on loop
+    debug: var=item
+    with_items:
+    - foo
+    - bar
+    - 3
+
+  - name: "loop through list"
+    debug:
+      msg: "An : {{ item }}"
+    with_items:
+      - 1
+      - 2
+      - 3
+
+  - name: add several users
+    user:
+      name: "{{ item }}"
+      groups: "wheel"
+      state: present
+    with_items:
+        - testuser1
+        - testuser2
+
+    
+  - name: Ensure group "vagrant" exists
+    group:
+      name: vagrant
+      state: present
+
+  - name: more complex items to add several users
+    user:
+      name: "{{ item.name }}"
+      uid: "{{ item.uid }}"
+      groups: "{{ item.groups }}"
+      state: present
+    with_items:
+        - { name: testuser1, uid: 1002, groups: "vagrant" }
+        - { name: testuser2, uid: 1003, groups: vagrant }
+
+  - name: more complex items to add several users debug
+    debug: msg="{{ item.name }}"
+    with_items:
+        - { name: testuser1, uid: 1002, groups: "vagrant" }
+        - { name: testuser2, uid: 1003, groups: vagrant }
+
+

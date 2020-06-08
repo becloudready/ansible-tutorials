@@ -1,0 +1,39 @@
+---
+- hosts: webservers
+  
+  tasks:
+   
+    - name: Registering the output in result
+      command: echo "Hello Ansible"
+      register: result
+      ignore_errors: True
+
+    # - name: Executing only if the result has failed state
+    #   command: echo "Hello Ansible"
+    #   #when: result is failed
+
+    - debug:
+        var: result.stdout_lines[0]
+
+    - debug:
+        var: result
+
+    - name: Getting OS version if result was succeeded 
+      command: cat /etc/redhat-release1
+      when: result is succeeded  # if result === succeed
+      ignore_errors: True
+
+    - name: Executing the task if result was skipped
+      command: /bin/still/something_else
+      when: result is skipped
+
+    - name: Check OS family to execute commands   
+      shell: echo "only on Red Hat 6, derivatives, and later"
+      when: ansible_os_family == "RedHat" 
+
+    - name: "shut down CentOS 6 and Debian 7 systems"
+      command: echo "Hello Linux Destros"
+      when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6") or
+          (ansible_distribution == "Debian" and ansible_distribution_major_version == "7")
+
+    

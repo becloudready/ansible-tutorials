@@ -1,0 +1,13 @@
+---
+# handlers file for ansible-prometheus
+- name: reload daemon
+  command: systemctl daemon-reload
+
+- name: restart docker
+  service: name=docker state=restarted enabled=yes
+
+- name: stop docker
+  service: name=docker state=stopped
+
+- name: start docker
+  service: name=docker state=started

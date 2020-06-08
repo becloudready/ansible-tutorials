@@ -1,0 +1,6 @@
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  unarchive:
+    src: http://apache.forsale.plus/kafka/2.5.0/kafka_2.12-2.5.0.tgz
+    dest: /opt/kafka/
+    remote_src: yes
+

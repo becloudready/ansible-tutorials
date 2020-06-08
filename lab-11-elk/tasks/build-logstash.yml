@@ -1,0 +1,26 @@
+---
+- name: Create temp files
+  file:
+    path: /tmp/logstash/
+    state: directory
+
+- name: Copy Docker file
+  copy:
+    src=logstash-Dockerfile
+    dest=/tmp/logstash/Dockerfile
+
+- name: build and push
+  ignore_errors: false
+  become: true
+  args:
+    chdir: /tmp/logstash/
+  command: "{{ item }}"
+  with_items:
+    - docker build -t sa-logstash-elk .
+    - docker image tag sa-logstash-elk "{{ docker_registry }}"/sa-logstash-elk
+    - docker push "{{ docker_registry }}"/sa-logstash-elk
+
+- name: Remove temp files
+  file:
+    path: /tmp/logstash/
+    state: absent

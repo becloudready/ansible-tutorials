@@ -1,0 +1,16 @@
+---
+- name: Terminate an EC2 instance
+  hosts: localhost
+  gather_facts: True
+  tasks:
+    - name: Terminate instance
+      ec2:
+         instance_ids: "{{ lookup('env', 'instance_id') }}"
+         wait: true
+         state: absent
+         region: ca-central-1
+      register: ec2
+    - name: Print all ec2 variables
+      debug: var=ec2
+
+

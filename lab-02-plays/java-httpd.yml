@@ -1,0 +1,24 @@
+---
+- hosts: node01  # Host or Group of Selections
+  become: true
+  vars:
+    httpd_port: 8080
+  tasks:
+  - name: Install httpd # Naming the task for debug purpose
+    yum: name=httpd state=present  # Using module ( doing the task )
+  - name: Start httpd
+    service: name=httpd state=started enabled=yes
+
+
+- hosts: node02
+  become: true
+  tasks:
+  - name: Install default-jdk
+    yum: name=java-1.8.0-openjdk state=present
+    when: ansible_os_family == "RedHat"
+  - name: Install default-jdk for Debian
+    apt: name=java-1.8.0-openjdk state=present
+    when: ansible_os_family == "Debian"
+  - name: Install java in amazon linux
+    yum: name=java-1.8.0-openjdk state=present
+    when: ansible_os_family == "Amazon"
