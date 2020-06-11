@@ -7,13 +7,19 @@
         pkg: httpd
         state: installed
       when: ansible_distribution == "RedHat"
-    
+
+    - yum:
+        pkg: httpd
+        state: installed
+      when: ansible_distribution == "Amazon"
+
+
     - apt:
         pkg: apache2
         state: installed
       when: ansible_distribution == "Ubuntu"
 
-    # Example that prints the loopback address and gateway for each host
+#    Example that prints the loopback address and gateway for each host
     - debug:
         msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
       when: ansible_product_uuid is defined
@@ -27,6 +33,7 @@
 
     - debug:
         var: result
+        
     - debug:
         msg: "{{ my_name }}"
       when: my_name == "beCloudReady"
@@ -39,7 +46,7 @@
     - name: Display some varialbes variables/facts known for a host
       debug:
         var: hostvars[inventory_hostname].ansible_all_ipv4_addresses[0]
-      when: hostvars[inventory_hostname].ansible_all_ipv4_addresses[0] == "172.31.9.4"
+      # when: hostvars[inventory_hostname].ansible_all_ipv4_addresses[0] == "172.31.6.217"
 
 
 - hosts: all
@@ -59,33 +66,11 @@
   gather_facts: false
   name: Running group var debugs for webserver
   tasks:
-  - debug: 
-    var: my_group_var
-
-  - name: Checking appserver groupvars in Webserver Hosts
-    debug:
-    var: appserver_groupvars
-
-  - pause: seconds=5
-
-  - debug:
-    var: webserver_groupvars
+    - debug: var=testname
+  
 
 - hosts: appservers
   gather_facts: false
   name: Running group var debugs for appservers
   tasks:
-  - debug: 
-    var: my_group_var
-  - name: Checking Webservers groupvars in Appserver Hosts
-    debug:
-    var: appserver_groupvars
-
-  - pause: seconds=2
-
-  - debug:
-    var: webserver_groupvars
-
-
-
-  
+    - debug: var=testname
