@@ -1,11 +1,9 @@
-node01 hello=world ansible_ssh_host=ec2-54-208-90-68.compute-1.amazonaws.com ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/hdp.pem
-node02 ansible_ssh_host=ec2-35-183-128-204.ca-central-1.compute.amazonaws.com ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/devops-may.pem
-node03 ansible_ssh_host=ec2-35-183-118-247.ca-central-1.compute.amazonaws.com ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/ansible.pem
-[dbserver]
-node01
-[webservers]
-node02
-[webservers:vars]
-hello=hello
+node01 ansible_ssh_host=15.222.12.100 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/ansible.pem
+node02 ansible_ssh_host=99.79.9.136 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/ansible.pem
 
-node04
+
+
+[webserver]
+node01
+[appserver]
+node02
