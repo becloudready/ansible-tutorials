@@ -14,7 +14,7 @@ ansible node00 -b -m yum -a "name=git state=present"
 ansible node00 -b -m git -a "repo=https://github.com/becloudready/prometheus_monitoring.git dest=/tmp version=HEAD"
 
 # Using Ansible modules in ad-hoc commands
-
+ansible -m -m yum -a "name=nginx state=present" node00 --become
 ansible -m service -a "name=nginx state=started enabled=yes" node00 --become
 ansible -m file -a "path=/home/ec2-user/usingAnsible state=directory" node00 --become
 ansible -m copy -a "src=Vagrantfile dest=/tmp" node00 --become

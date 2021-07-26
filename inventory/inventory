@@ -1,2 +1,2 @@
-[node0]
-159.203.5.59
+[node00]
+142.93.150.117 ansible_ssh_user=root ansible_ssh_private_key_file=~/ansible.pem
