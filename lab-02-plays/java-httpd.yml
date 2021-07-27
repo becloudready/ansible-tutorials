@@ -1,16 +1,25 @@
 ---
-- hosts: node01  # Host or Group of Selections
+# create new group, appservers, and install java
+- hosts: webservers  # Host or Group of Selections
+  gather_facts: true
   become: true
   vars:
     httpd_port: 8080
   tasks:
-  - name: Install httpd # Naming the task for debug purpose
-    yum: name=httpd state=present  # Using module ( doing the task )
+  
+  - apt:
+      pkg: apache2
+      state: installed
   - name: Start httpd
-    service: name=httpd state=started enabled=yes
+    service: name=apache2 state=started enabled=yes
 
+- hosts: dbservers # Host or Group of Selections
+  tasks:
+  - name: Install Mysql web server # Naming the task for debug purpose
+    dnf: pkg=mysql state=installed  # Using module ( doing the task )
+  
 
-- hosts: node02
+- hosts: appservers
   become: true
   tasks:
   - name: Install default-jdk
