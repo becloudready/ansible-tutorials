@@ -10,6 +10,18 @@
   - apt:
       pkg: apache2
       state: installed
+    when: ansible_distribution == "RedHat" 
+
+  - yum:
+      pkg: httpd
+      state: installed
+    when: ansible_distribution == "RedHat"
+
+  - yum:
+      pkg: httpd
+      state: installed
+    when: ansible_distribution == "CentOS"
+
   - name: Start httpd
     service: name=apache2 state=started enabled=yes
 
