@@ -93,7 +93,10 @@ ansible-playbook lab-08/running_roles.yml
 - Create a custom fact in remote nodes & get the git & httpd version using ansible adhoc command.
 - Write a playbook to read username & password as variables & display the output.
 - Write a playbook to install httpd using command line argument.
-- Write a playbook to get the following details of localhost using setup module i)ansible_distribution ii)ansible_distribution_version iii)ansible_os_family
+- Write a playbook to get the following details of localhost using setup module 
+  -   ansible_distribution 
+  -   ansible_distribution_version 
+  -   ansible_os_family
 - Write a playbook to perform the following arithmetic operations by passing values of x & y through vars.yaml file. 
   - Addition
   - Subtraction
@@ -101,9 +104,9 @@ ansible-playbook lab-08/running_roles.yml
   - Division v)Modulus
 - Write a playbook to install httpd using conditional statement.
 - Write a playbook to create the following users using loops. 
-  -   i)user:kunal groups:wheel 
-  -   ii)user:tom groups:user 
-  -   iii)user:bob groups:user
+  -   user:kunal groups:wheel 
+  -   user:tom groups:user 
+  -   user:bob groups:user
 - Write a playbook to install nginx & wget with & without tags.
 - Write a playbook to install apache web-server with customized default page which will prints "Welcome to Ansible training with ip_address of remote node".
 - Write a playbook to install Tomcat server
