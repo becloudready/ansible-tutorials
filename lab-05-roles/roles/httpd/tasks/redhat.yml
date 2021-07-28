@@ -1,6 +1,6 @@
   
 - name: Install httpd server
-  apt: name=httpd state=present
+  yum: name=httpd state=present
 
 - name: Start httpd
   service: name=httpd state=started enabled=yes
