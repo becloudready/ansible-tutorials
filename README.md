@@ -82,5 +82,24 @@ ansible-playbook lab-08/running_roles.yml
 
 ## Q&A
 
+## Assignments
 
+Write a ansible ad-hoc to retrieve the current date and time from web servers.
+Create a group by name “db” and add remote node to the group.Verify connectivity with the group.
+Write a ansible ad-hoc command to install & remove python3 & git package.
+Add a system user called joe on all web servers. Make sure that the user has a home directory.
+Write a ansible ad-hoc to clone the github repository. (https://github.com/becloudready/ansible-tutorials) & store it in location /tmp/.
+Write a ad-hoc command to fetch the file .bash_profile from remote node & store it on controller node in home directory by name remote_node_profile.
+Create a custom fact in remote nodes & get the git & httpd version using ansible adhoc command.
+Write a playbook to read username & password as variables & display the output.
+Write a playbook to install httpd using command line argument.
+Write a playbook to get the following details of localhost using setup module i)ansible_distribution ii)ansible_distribution_version iii)ansible_os_family
+Write a playbook to perform the following arithmetic operations by passing values of x & y through vars.yaml file. i)Addition ii)Subtraction iii)Multiplication iv)Division v)Modulus
+Write a playbook to install httpd using conditional statement.
+Write a playbook to create the following users using loops. i)user:kunal groups:wheel ii)user:tom groups:user iii)user:bob groups:user
+Write a playbook to install nginx & wget with & without tags.
+Write a playbook to install apache web-server with customized default page which will prints "Welcome to Ansible training with ip_address of remote node".
+Write a playbook to install Tomcat server
+Write a playbook to install Tomcat server using roles
+Write a playbook to install Jenkins server using roles
 
