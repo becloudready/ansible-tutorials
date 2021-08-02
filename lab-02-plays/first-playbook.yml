@@ -1,5 +1,5 @@
 ---
-- hosts: node00  # Host or Group of Selections
+- hosts: node01  # Host or Group of Selections
   tasks:
   - name: Create Dir # Naming the task for debug purpose
     shell: mkdir -p /home/ec2-user/testdirAnsibl  # Using module ( doing the task )
