@@ -5,4 +5,4 @@ node01 ansible_ssh_host=147.182.187.13 ansible_ssh_user=root
 [webserver]
 node01
 [appserver]
-node02
+node01
