@@ -1,0 +1,7 @@
+localhost ansible_connection=local nameserver=8.8.8.8 snmp_port=160-161
+node01 ansible_connection=ssh nameserver=8.8.8.8 ansible_ssh_pass=borabora
+node02 ansible_connection=ssh nameserver=8.8.8.8 ip_addr=193.123.12.1 ansible_ssh_pass=toratora
+
+[web_nodes]
+node01
+node02

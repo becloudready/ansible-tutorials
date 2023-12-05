@@ -1,0 +1,23 @@
+1. How is key and value separated in YAML?
+
+A. Semicolon
+B. Caret
+C. Colon
+D. Comma
+
+2. What would you define the following code as?
+
+```
+Cars:
+- BMW
+- Mercedes
+- Audi
+
+```
+
+A. Array
+B. Distro
+C. List
+D. Tuple
+
+3
