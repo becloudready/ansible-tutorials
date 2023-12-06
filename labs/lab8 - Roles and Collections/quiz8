@@ -1,0 +1,32 @@
+How do we install the docker collection?
+
+A. ansible-galaxy collection install community.docker
+B. ansible-galaxy retrieve collection community.docker
+C. ansible-galaxy collection get community.docker
+D. ansible-galaxy get collection community.docker
+
+Identify the missing line ("[]")in the following playbook:
+```
+---
+- name: Pull Hello World Docker Image
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Pull 'hello-world' Docker image
+      community.docker.docker_image:
+        name: hello-world
+        state: present
+
+    - name: Run 'hello-world' Docker container
+      []
+        name: hello-world-container
+        image: hello-world
+        state: started
+```
+
+A. community.docker.docker_container
+B. community.docker.docker_image
+C. community.docker.docker_run
+D. community.docker.docker_pull
+

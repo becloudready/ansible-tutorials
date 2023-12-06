@@ -1,0 +1,29 @@
+---
+- name: Docker Playbook
+  hosts: localhost
+  become: true  # Run tasks with elevated privileges (sudo)
+
+  tasks:
+    - name: Pull Docker Images
+      community.docker.docker_image:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - ubuntu:latest
+        - nginx:latest
+        - alpine:latest
+        - busybox:latest
+
+    - name: Run Docker Containers
+      community.docker.docker_container:
+        name: "{{ item.name }}"
+        image: "{{ item.image }}"
+        state: started
+        ports:
+          - "80:80"
+        detach: true
+      loop:
+        - name: nginx-container
+          image: nginx:latest
+        - name: busybox-container
+          image: busybox:latest

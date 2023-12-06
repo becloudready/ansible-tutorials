@@ -1,0 +1,85 @@
+1. Write a playbook using docker collection to pull the `hello-world` docker image.
+2. Write a playbook that will install the following collections:
+
+```
+collections:
+- name: community.docker
+- name: community.general.terraform
+```
+
+3. Update the following playbook with appropriate module names from azure ansible collection:
+
+```
+---
+- name: Deploy Multiple VMs in Azure
+  hosts: localhost
+  gather_facts: false  # Disable gathering facts about the target machine
+
+  tasks:
+    - name: Create Azure Resource Group
+      [collection]:
+        name: "{{ resource_group }}"
+        location: "{{ azure_location }}"
+        state: present
+      environment:
+        AZURE_CLIENT_ID: "{{ azure_client_id }}"
+        AZURE_SECRET: "{{ azure_client_secret }}"
+        AZURE_SUBSCRIPTION_ID: "{{ azure_subscription_id }}"
+        AZURE_TENANT: "{{ azure_tenant_id }}"
+      delegate_to: localhost
+
+    - name: Create Azure Virtual Machines
+      [collection]:
+        name: "{{ item.name }}"
+        resource_group: "{{ resource_group }}"
+        location: "{{ azure_location }}"
+        vm_size: "{{ item.vm_size }}"
+        admin_username: "{{ admin_username }}"
+        admin_password: "{{ admin_password }}"
+        image:
+          offer: "{{ item.image.offer }}"
+          publisher: "{{ item.image.publisher }}"
+          sku: "{{ item.image.sku }}"
+          version: "{{ item.image.version }}"
+        network_interfaces:
+          - name: "{{ item.name }}-nic"
+        os_disk:
+          name: "{{ item.name }}-osdisk"
+          create_option: "{{ item.os_disk.create_option }}"
+          size_gb: "{{ item.os_disk.size_gb }}"
+        data_disks: "{{ item.data_disks }}"
+        state: present
+      with_items:
+        - name: "vm1"
+          vm_size: "Standard_DS1_v2"
+          image:
+            offer: "UbuntuServer"
+            publisher: "Canonical"
+            sku: "18.04-LTS"
+            version: "latest"
+          os_disk:
+            create_option: "FromImage"
+            size_gb: "30"
+          data_disks:
+            - lun: 0
+              create_option: "Empty"
+              disk_size_gb: 100
+        - name: "vm2"
+          vm_size: "Standard_DS2_v2"
+          image:
+            offer: "WindowsServer"
+            publisher: "MicrosoftWindowsServer"
+            sku: "2019-Datacenter"
+            version: "latest"
+          os_disk:
+            create_option: "FromImage"
+            size_gb: "127"
+          data_disks:
+            - lun: 0
+              create_option: "Empty"
+            
+```
+
+4. Write the next task for `webserver.yml` playbook to restart the web server.
+
+5. From playbook `docker.yml`; how many containers will be running once the playbook ends execution?
