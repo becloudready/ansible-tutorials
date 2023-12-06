@@ -1,0 +1,11 @@
+---
+
+- name: Starting HTTPD server
+  hosts: all
+  become: True
+  tasks:
+  - name: Start HTTPD server
+    service:
+      name: httpd
+      state: started
+  

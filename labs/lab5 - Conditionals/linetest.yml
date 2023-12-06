@@ -1,0 +1,15 @@
+--- 
+- name: Exercise for adding lines to file
+  hosts: localhost
+  become: True
+  tasks: 
+  - name: 'Adding a line to file if not already entered'
+    hosts: localhost
+    become: yes
+    tasks:
+    - name: Checking the contents of the file
+      command: cat /etc/resolv.conf
+
+    - name: Adding the line
+      command: 'echo "nameserver 8.8.8.8" >> /etc/resolv.conf'
+

@@ -1,0 +1,6 @@
+1. Modify the `httpd.yml` playbook to run only on `node02` host. You need not run the playbook.
+2. Update the `httpd.yml` playbook to restart the httpd service on all hosts. Save the file as `all-httpd.yml`
+3. Write a playbook to determine if a the car is an SUV or a Sedan based on the length of a car. Car less than `suv_length` is an SUV. The partial playbook is available in `cartype.yml`
+4. Modify the playbook `linetest.yml`:
+    A. Make it so that the first task output is saved in a variable. Use the `register` module.
+    B. Modify the second task to complete using `lineinfile` module.
