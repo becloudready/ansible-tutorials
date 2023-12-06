@@ -1,0 +1,2 @@
+Modify the playbook `cars.yml` to use loop variables `with_items` to print all the car names.
+Write a playbook which will install packages `qemu`, `pciutils`, `nginx` and `wget` on localhost using `with_items` loop.

@@ -1,0 +1,12 @@
+Can we execute loops on dictionary vlaues in Ansible?
+
+A. Yes
+B. No
+
+Which of the following is a lookup plugin directive?
+
+A. when_*
+B. while_*
+C. with_*
+D. which_*
+
