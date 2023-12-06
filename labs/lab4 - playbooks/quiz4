@@ -1,0 +1,117 @@
+In which format, does the Ansible Playbook gets written?
+
+A. YAML
+B. XML
+C. HTML
+D. INI
+
+How many plays are there in the following playbook?
+
+```
+---
+- name: Setup apache
+  hosts: webserver
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: installed
+    - name: Start service
+      service:
+        name: httpd
+        state: started
+
+- name: Setup tomcat
+  hosts: appserver
+  tasks:
+    - name: install httpd
+      yum:
+        name: tomcat
+        state: installed
+    - name: Start service
+      service:
+        name: tomcat
+        state: started
+```
+
+A. 1
+B. 2
+C. 3
+D. 4
+
+How many tasks are there in the following playbook?
+
+```
+---
+- name: Setup apache
+  hosts: webserver
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: installed
+    - name: Start service
+      service:
+        name: httpd
+        state: started
+
+- name: Setup tomcat
+  hosts: appserver
+  tasks:
+    - name: install httpd
+      yum:
+        name: tomcat
+        state: installed
+    - name: Start service
+      service:
+        name: tomcat
+        state: started
+```
+
+A. 3
+B. 2
+C. 8
+D. 4
+
+How do you run an ansible-playbook?
+
+A. ansible-playbook -i install.yml
+B. ansible-playbook install.yml
+C. ansible-playbook -p install.yml
+D. ansible-run install.yml
+
+How will you run an ansible playbook in a check mode?
+
+A. ansible-playbook -i inventory install.yml
+B. ansible-playbook --check -i inventory install.yml
+C. ansible-playbook -i inventory install.yml --check
+D. ansible-playbook -i inventory --check install.yml
+
+How will you run an ansible playbook in a diff mode?
+
+A. ansible-playbook -i inventory install.yml
+B. ansible-playbook --diff -i inventory install.yml
+C. ansible-playbook -i inventory install.yml --diff
+D. ansible-playbook -i inventory --diff install.yml
+
+How will you run an ansible-lint on a playbook?
+
+A. ansible-playbook playbook.yml --lint
+B. ansible-lint --lint playbook.yml
+C. ansible-lint playbook.yml
+D. ansible-playbook --lint playbook.yml
+
+Which of the following can not be a potential issue in ansible-lint output?
+
+A. Incorrect Indentation
+B. Deprecated Module
+C. Use of a blacklisted command
+D. SSH connection error
+
+Running `ansible-lint` did not produce any output; what does it mean?
+
+A. The playbook is errorful
+B. The playbook is empty
+C. The playbook is complient to best practices and has no style-related issues.
+D. ansible-lint failed.
+

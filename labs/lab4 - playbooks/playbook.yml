@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+  - name: Get the OS information
+    command: cat /etc/os-release
+
+    
