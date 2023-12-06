@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Installing app packages
+    yum:
+      name:
+      - vim
+      - sqlite
+      - jq
+    state: present

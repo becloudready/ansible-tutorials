@@ -1,0 +1,17 @@
+Is it possible to define variables in inventory file?
+
+A. Yes
+B. No
+
+Is it possible to define variables in ansible-playbook?
+
+A. Yes
+B. No
+
+Which of the following is a correct format to call a variable?
+
+A. '(( variable_name ))'
+B. '{{ variable_name }}'
+C. '( variable_name )'
+D. '{ variable_name }'
+

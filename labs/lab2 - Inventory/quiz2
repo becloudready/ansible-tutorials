@@ -1,0 +1,32 @@
+Which format is the following inventory in?
+
+```
+host1 ansible_host=one.webserver.com
+host2 ansible_host=two.webserver.com
+```
+
+A. YAML
+B. JSON
+C. HTML
+D. INI
+
+From which port does the Ansible connect to Linux Remote Hosts?
+
+A. 443
+B. 22
+C. 8080
+D. 21
+
+Which of the following inventory parameters can be used to establish a connection?
+
+A. ansible_port
+B. ansible_node
+C. ansible_connection
+D. ansible_forward
+
+How to connect to the Windows target machine using ansible_connection value?
+
+A. ssh
+B. windows
+c. rcp
+d. winrm

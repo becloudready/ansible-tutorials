@@ -1,0 +1,7 @@
+Replace the hardcoded ip addresses in `inventory` file with variable `ip_address`
+
+Replace the SNMP port values with `snmp_port`
+
+Add three variables: `car_model`, `car_year` and `color` to the playbook `cardetails.yml` and modify the tasks with updated variables.
+
+Playbook `install.yml` installs a bunch of packages on a linux machine. Update the playbook to replace the hardcoded package names with variables. Use variable `package`

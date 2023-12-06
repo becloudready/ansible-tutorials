@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  tasks:
+    - command: 'echo "My car is BMW M3'
+    - command: 'echo "My car was made in 1989'
+    - command: 'echo "My car is painted white'
