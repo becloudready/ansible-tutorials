@@ -1,0 +1,6 @@
+---
+- name: 'hosts'
+  hosts: all
+  become: yes
+  tasks:
+    - name: Get the OS Version

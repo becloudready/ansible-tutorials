@@ -1,0 +1,14 @@
+---
+- name: Printing the names of cars
+  hosts: localhost
+  vars:
+    cars:
+    - BMW
+    - Mercedes
+    - Porsche
+    - Lamborghini
+    - Ferrari
+    - Bugatti
+  tasks:
+    - name: Printing the cars
+      command: 'echo "{{ cars }}'

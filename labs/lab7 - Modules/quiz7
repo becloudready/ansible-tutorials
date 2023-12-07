@@ -1,0 +1,42 @@
+Which of the following ansible modules support `free-form` parameter?
+
+A. copy
+B. lineinfile
+C. command
+D. service
+
+Which of the following commands we can use to see the information about ansible modules from command-line?
+
+A. ansible --help
+B. ansible-info
+C. ansible-doc
+D. ansible-help
+
+Which of the following statements is true about `package` module?
+
+A. It only works on RedHat based systems.
+B. It only works on Debian based systems.
+C. It works on any linux systems regardless of system type.
+D. None of the above it true.
+
+Which type of ansible plugin allows user to integrate with a cloud provider's API for custom resource provisioning?
+
+A. Connection Plugin
+B. Lookup plugin
+C. Module plugin
+D. Action plugin
+
+Which type of ansible plugin facilitates retrieval of AWS EC2 instances?
+
+A. Lookup plugin
+B. Filter plugin
+C. Module plugin
+D. Dynamic Inventory Plugin
+
+You are planning to deploy virtual machines on AWS cloud. Which of the following modules can be employed for this?
+
+A. vmware
+B. virtualbox
+C. terraform
+D. azcli
+

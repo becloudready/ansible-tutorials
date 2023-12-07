@@ -1,0 +1,32 @@
+Which of the following is a magic variable that populates the date and time of operating system?
+
+A. ansible_time
+B. ansible_date_time
+C. ansible_chron
+D. ansible_clock
+
+Which is the keyword used for defining a condition in an ansible playbook?
+
+A. for
+B. while
+C. when
+D. if
+
+We have an Ubuntu server; that requires qemu be installed. Will the following playbook install the requirement?
+
+```
+---
+- name: Installing QEMU
+  hosts: all
+  tasks:
+  - name: Installing QEMU
+    package:
+        name: qemu
+        state: present
+    when: ansible_os_family == "Debian"
+
+```
+
+A. Yes
+B. No
+

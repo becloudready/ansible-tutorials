@@ -1,0 +1,14 @@
+---
+
+- name: Determine the type of the car
+  hosts: localhost
+  vars:
+    length: 270
+    suv_length: 180
+  tasks:
+    - name: Check if this car is an SUV
+      command: 'echo "This is an SUV"'
+
+    - name: Check if this car is Sedan
+      command: 'echo "This car is a Sedan"'
+

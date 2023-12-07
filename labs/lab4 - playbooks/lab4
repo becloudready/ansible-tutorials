@@ -1,0 +1,4 @@
+1. Update the playbook `playbook.yml` to execute a command `cat /proc/cpu`
+2. Update the name of the task accordingly.
+3. Make it so that the tasks run on host `node01`. The inventory file is available in lab3.
+4. Update the playbook to run the operations on `web_nodes` group.

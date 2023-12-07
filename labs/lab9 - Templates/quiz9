@@ -1,0 +1,32 @@
+Which of the following `jinja2` expression will solve the variable named `fruit`? Here, the `fruit==banana`.
+
+A. This is {{ fruit }}
+B. This is '{{ banana }}'
+C. This is '{{ fruit }}'
+D. This is {{ banana }}
+
+2. Convert the text in variable `car_name` in the following code using Jinja2 to lowercase.
+
+```
+car_name: "Generally, cars are ABUNDUNTLY convenient compared to TTC"
+```
+
+A. {{ car_name | lower }}
+B. {{ car_name | 'lower' }}
+C. {{ "car_name" | 'lower' }}
+D. {{ car_name | "lower" }}
+
+3. Convert the text in variable `username` in the following code using Jinja2 to titlecase.
+
+A. {{ username | title }}
+B. {{ username | 'Title' }}
+C. {{ "username" | 'Title' }}
+D. {{ username | "title" }}
+
+
+In Jinja2, how can you check if a variable is defined?
+
+A. {% check_defined variable %}
+B. {% if variable is defined %}
+C. {% defined variable %}
+D. {{ if defined(variable) }}
