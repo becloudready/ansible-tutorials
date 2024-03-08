@@ -1,0 +1,59 @@
+---
+- name: Remove old pkgs
+  apt: pkg="{{ item }}" state=absent
+  with_items:
+    - docker 
+    - docker-engine 
+    - docker.io 
+    - containerd 
+    - runc
+
+- name: Install docker deps
+  apt: pkg="{{ item }}" state=absent
+  with_items:
+    - ca-certificates 
+    - curl 
+    - gnupg
+    - lsb-release
+
+- name: Creates directory
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+
+
+- name: Doing curl
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /tmp/docker_key
+    validate_certs: no
+
+- name: make sure gpg file not present
+  file:
+    path: /etc/apt/keyrings/docker.gpg
+    state: absent
+
+- name: Doing GPG
+  shell: gpg  --dearmor -o /etc/apt/keyrings/docker.gpg /tmp/docker_key
+  become: true
+
+- name: adding docker repo
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+
+- name: install docker
+  apt: pkg="{{ item }}" state=latest
+  with_items: 
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io 
+    - docker-compose-plugin
+
+- name: Add the user ansible into docker group
+  ansible.builtin.user:
+    name: "{{ ansible_user }}"
+    group: "docker"
+    
+
+

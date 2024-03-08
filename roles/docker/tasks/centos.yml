@@ -1,0 +1,16 @@
+- name: Install Yum Utils
+  yum: pkg=yum-utils state=installed
+
+- name: Add repository
+  copy: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo
+
+- name: Install docker 
+  ansible.builtin.yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+    state: present
+- name: start docker service
+  service: name=docker state=started
