@@ -1,0 +1,39 @@
+---
+- name: Ensure NiFi data directories exist
+  ansible.builtin.file:
+    path: "{{ nifi_data_dir }}/{{ item }}"
+    state: directory
+    owner: 1000
+    group: 1000
+    mode: "0775"
+  loop:
+    - state
+    - flowfile_repository
+    - database_repository
+    - content_repository
+    - conf
+
+- name: Pull Apache NiFi container image
+  community.docker.docker_image:
+    name: "{{ nifi_docker_image }}"
+    source: pull
+
+- name: Run Apache NiFi container
+  community.docker.docker_container:
+    name: "{{ nifi_container_name }}"
+    image: "{{ nifi_docker_image }}"
+    state: started
+    recreate: true
+    restart_policy: unless-stopped
+    published_ports:
+      - "{{ nifi_ui_port }}:8443"
+    volumes:
+      - "{{ nifi_data_dir }}/state:/opt/nifi/nifi-current/state"
+      - "{{ nifi_data_dir }}/flowfile_repository:/opt/nifi/nifi-current/flowfile_repository"
+      - "{{ nifi_data_dir }}/database_repository:/opt/nifi/nifi-current/database_repository"
+      - "{{ nifi_data_dir }}/content_repository:/opt/nifi/nifi-current/content_repository"
+      - "{{ nifi_data_dir }}/conf:/opt/nifi/nifi-current/conf"
+    env:
+      SINGLE_USER_CREDENTIALS_USERNAME: "{{ nifi_admin_username }}"
+      SINGLE_USER_CREDENTIALS_PASSWORD: "{{ nifi_admin_password }}"
+      NIFI_WEB_HTTPS_PORT: "{{ nifi_ui_port }}"

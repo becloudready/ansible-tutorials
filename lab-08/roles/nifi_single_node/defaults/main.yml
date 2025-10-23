@@ -1,0 +1,7 @@
+---
+nifi_docker_image: "apache/nifi:latest"
+nifi_container_name: "nifi"
+nifi_ui_port: 8443
+nifi_data_dir: "/opt/nifi/data"
+nifi_admin_username: "nifiadmin"
+nifi_admin_password: "ChangeMe123!"

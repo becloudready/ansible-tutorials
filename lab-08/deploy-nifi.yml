@@ -1,0 +1,9 @@
+---
+- name: Deploy a single-node Apache NiFi instance on Docker
+  hosts: nifi
+  become: true
+  collections:
+    - community.docker
+  roles:
+    - docker_runtime
+    - nifi_single_node

@@ -47,6 +47,15 @@ cd ansible/lab-05/
 ansible-playbook deploy-web-content.yml
 ```
 
+### lab-08
+
+```
+ansible-galaxy collection install community.docker
+cd ansible/lab-08/
+ansible-playbook -i ../inventory/ansible-nodes deploy-nifi.yml \
+  -e "nifi_admin_password=SomeSecurePassword"
+```
+
 ## lab-06 - Please don't push your AWS key on github
 
 Lab to create instances on AWS. 

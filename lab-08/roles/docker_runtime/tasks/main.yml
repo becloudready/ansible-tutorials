@@ -1,0 +1,29 @@
+---
+- name: Install Docker dependencies on RedHat-based systems
+  ansible.builtin.yum:
+    name:
+      - docker
+      - python3-pip
+    state: present
+  when: ansible_facts.os_family == "RedHat"
+
+- name: Install Docker dependencies on Debian-based systems
+  ansible.builtin.apt:
+    name:
+      - docker.io
+      - python3-pip
+    state: present
+    update_cache: true
+  when: ansible_facts.os_family == "Debian"
+
+- name: Ensure Docker service is enabled and running
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Install Docker SDK for Python
+  ansible.builtin.pip:
+    name: docker
+    state: present
+    executable: pip3
